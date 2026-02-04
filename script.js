@@ -106,5 +106,4 @@ function switchForm(t) {
   document.getElementById('delForm').classList.toggle('active', t === 'del');
   document.getElementById('f1').classList.toggle('active', t === 'bid');
   document.getElementById('f2').classList.toggle('active', t === 'del');
-
 }
