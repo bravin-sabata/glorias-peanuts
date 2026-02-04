@@ -1,0 +1,137 @@
+<header class="navbar">
+  <div class="logo">🥜 Gloria’s Nutri-Finest</div>
+  <nav class="main-tabs">
+    <button class="nav-tab active" onclick="openPage('shop-page', this)">Shop</button>
+    <button class="nav-tab" onclick="openPage('story-page', this)">Our Story</button>
+    <button class="nav-tab" onclick="openPage('work-page', this)">Work With Us</button>
+    <a href="tel:0746979735" class="call-btn" target="_top" style="text-decoration:none; color:black; display:inline-block;">📞 Call Gloria</a></a></button>
+  </nav>
+</header>
+
+<div id="shop-page" class="page-content active">
+  <section class="hero-amazon">
+    <div class="hero-content">
+      <h2>Pure Red Skin Peanut Butter</h2>
+      <p>Nairobi's Finest | 100% Natural | Delivered in 24hrs</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cards">
+      <div class="card">
+        <div class="product-img-frame"><img src="https://i.postimg.cc/Xv9V7SRv/Edible-Science-Experiments-for-Kids-Kids-Stuff-Education-halfpintpeeps-com.jpg"></div>
+        <h3>1 kg Butter</h3><p class="price">KSh 450</p>
+        <button class="buy-btn" onclick="order('1kg')">Order & Pay</button>
+      </div>
+      <div class="card">
+        <div class="product-img-frame"><img src="https://i.postimg.cc/PfYrShC7/Pindasoep.jpg"></div>
+        <h3>½ kg Butter</h3><p class="price">KSh 250</p>
+        <button class="buy-btn" onclick="order('1/2kg')">Order & Pay</button>
+      </div>
+      <div class="card">
+        <div class="product-img-frame"><img src="https://i.postimg.cc/R0SPqw8B/Quick-and-Easy-Homemade-Peanut-Butter.jpg"></div>
+        <h3>¼ kg Butter</h3><p class="price">KSh 150</p>
+        <button class="buy-btn" onclick="order('1/4kg')">Order & Pay</button>
+      </div>
+    </div>
+
+    <section id="payment-section" class="mpesa-box">
+      <h3>Lipa Na M-PESA Instructions</h3>
+      <p>Buy Goods Till Number: <br><b style="font-size: 2.2rem; color: #2e7d32;">6066203</b></p>
+      <div class="steps-list">
+        <p>1. Pay to Till: <b>6066203</b></p>
+        <p>2. Take a screenshot of the message.</p>
+        <p>3. Upload it in the <b>Chatbot</b> below for verification.</p>
+      </div>
+    </section>
+
+    <section class="reviews-section">
+      <h3 class="section-title">Customer Reviews</h3>
+      <div class="review-grid">
+        <div class="review-card">⭐⭐⭐⭐⭐ "Fresh and very creamy. Best in Umoja!" - <b>Jane W.</b></div>
+        <div class="review-card">⭐⭐⭐⭐⭐ "Delivery was fast, arrived in 4 hours." - <b>Kevin O.</b></div>
+      </div>
+    </section>
+
+    <section class="comment-section">
+      <h3>Public Discussion</h3>
+      <div id="comment-list"></div>
+      <div class="comment-input-box">
+        <input type="text" id="comm-name" placeholder="Your Name">
+        <textarea id="comm-text" placeholder="Ask a question or leave a comment..."></textarea>
+        <button class="buy-btn" style="width:auto; padding:10px 30px;" onclick="addComment()">Post</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="story-page" class="page-content">
+  <div class="container">
+    <section class="bio-layout">
+      <img src="https://imgur.com/FTQ7gj3.jpg" class="mums-profile-pic">
+      <div class="bio-text">
+        <h2>Meet Gloria</h2>
+        <p>Pure health, no additives. Our peanuts are sourced locally and roasted daily in Umoja One.</p>
+      </div>
+    </section>
+    
+    <div class="video-row">
+      <div class="video-text-side"><h3>Our Production Process</h3><p>Clean, roasted, and pure.</p></div>
+      <div class="square-video-wrapper">
+        <div class="video-clipper">
+          <iframe src="https://drive.google.com/file/d/1z9H6ugGEdyywwVuzUqHd0SUe9qo51NRq/preview"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-container">
+      <h3>Visit Our Shop</h3>
+      <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8188439194285!2d36.8924151!3d-1.2824701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1146777f9f07%3A0x6739665f818816c4!2sUmoja%201%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1700000000000"></iframe>
+    </div>
+  </div>
+</div>
+
+<div id="work-page" class="page-content">
+  <div class="container">
+    <h2 style="text-align:center;">Join Our Team</h2>
+    <div class="form-tabs">
+      <button class="tab-btn active" id="f1" onclick="switchForm('bid')">Suppliers</button>
+      <button class="tab-btn" id="f2" onclick="switchForm('del')">Delivery Jobs</button>
+    </div>
+    
+    <div id="bidForm" class="form-container active">
+      <h3>Supplier Application</h3>
+      <input type="text" id="sup-name" placeholder="Full Name / Company Name">
+      <input type="text" id="sup-loc" placeholder="Source of Peanuts (e.g., Meru, Malawi)">
+      <input type="number" id="sup-price" placeholder="Your best price per Sack (KSh)">
+      <button class="buy-btn" onclick="submitSupplierApp()">Send Application via WhatsApp</button>
+    </div>
+    
+    <div id="delForm" class="form-container">
+      <h3>Delivery Job Application</h3>
+      <input type="text" id="del-name" placeholder="Full Name">
+      <input type="text" id="del-area" placeholder="Areas you can cover (e.g., Umoja, CBD)">
+      <input type="text" id="del-vehicle" placeholder="Vehicle type (Motorbike, Bicycle, Foot)">
+      <button class="buy-btn" onclick="submitDeliveryApp()">Apply Now via WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<div id="chatbot-icon" onclick="toggleChat()">💬</div>
+<div id="chat-window">
+  <div class="chat-header">Gloria's AI Assistant</div>
+  <div id="chat-body">
+    <div class="bot-msg">Hi! I can help with prices, delivery info, or peanut health facts. Or just upload your receipt!</div>
+  </div>
+  <div id="admin-verify-btn" style="display:none; padding:10px; background:#e8f5e9; text-align:center; border-top:1px solid #ddd;">
+    <button onclick="sendSuccessMsg()" style="background:#2e7d32; color:white; border:none; padding:8px; border-radius:5px; cursor:pointer; font-weight:bold;">Verify & Confirm Order ✅</button>
+  </div>
+  <div class="chat-footer">
+    <label for="receipt-upload" style="cursor:pointer; font-size:20px; padding:5px;">🖼️</label>
+    <input type="file" id="receipt-upload" accept="image/*" style="display:none;" onchange="processReceipt(event)">
+    <input type="text" id="chat-input" placeholder="Ask me anything..." onkeypress="if(event.key==='Enter') sendChat()">
+    <button onclick="sendChat()" class="send-btn">➡️</button>
+  </div>
+</div>
+
+<footer><p>Gloria’s Nutri-Finest | 0795104088</p></footer>
