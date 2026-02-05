@@ -121,3 +121,4 @@ function switchForm(t) {
   document.getElementById('f2').classList.toggle('active', t === 'del');
 
 }
+
