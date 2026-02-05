@@ -17,10 +17,16 @@ function openPage(pId, el) {
   el.classList.add("active");
 }
 
-function order(size) {
-  document.getElementById('payment-section').scrollIntoView({behavior: "smooth"});
-  toggleChat();
-  document.getElementById('chat-body').innerHTML += `<div class="user-msg">I want to order ${size}.</div>`;
+function order(productSize) {
+    const myNumber = "254795104088"; // Your primary business number
+    const message = `Hi Gloria! I want to order the ${productSize} Nutri-Finest Peanut Butter. Please send payment details.`;
+    const url = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
+    
+    // This part sends it to your WhatsApp
+    window.open(url, '_blank');
+    
+    // This part keeps the chatbot helpful
+    appendMessage('bot', `Opening WhatsApp to send your order for ${productSize}...`);
 }
 
 function processReceipt(event) {
@@ -87,12 +93,19 @@ function submitDeliveryApp() {
 }
 
 function addComment() {
-  const name = document.getElementById('comm-name').value;
-  const text = document.getElementById('comm-text').value;
-  if(name && text) {
-    document.getElementById('comment-list').innerHTML += `<div class="comment-card"><b>${name}</b>: ${text}</div>`;
-    document.getElementById('comm-name').value = ""; document.getElementById('comm-text').value = "";
-  }
+    const name = document.getElementById('com-name').value;
+    const comment = document.getElementById('com-text').value;
+    if (name && comment) {
+        const list = document.getElementById('comment-list');
+        const newComment = document.createElement('li');
+        newComment.innerHTML = `<b>${name}:</b> ${comment}`;
+        list.appendChild(newComment);
+        // Clear the boxes after posting
+        document.getElementById('com-name').value = '';
+        document.getElementById('com-text').value = '';
+    } else {
+        alert("Please enter both your name and a comment!");
+    }
 }
 
 function toggleChat() {
@@ -106,4 +119,5 @@ function switchForm(t) {
   document.getElementById('delForm').classList.toggle('active', t === 'del');
   document.getElementById('f1').classList.toggle('active', t === 'bid');
   document.getElementById('f2').classList.toggle('active', t === 'del');
+
 }
